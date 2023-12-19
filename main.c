@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #define F_CPU 11059200UL
 #include <avr/interrupt.h>
-#include <util/delay.h>
+// #include <util/delay.h>
 #define RS 7 // выбор регистра
 #define E 6  // строб передачи
 uint8_t sec = 0;
@@ -37,7 +37,7 @@ void timer_ini(void) //нам больше не нужен делей
 	
 }
 
-ISR (TIMER1_OVF_vect) //смена рисуемого столбцаи и вывод картинки
+ISR (TIMER1_OVF_vect) //text for lcd
 {
 	TCNT1 = 65535 - 43196;
     sec ++;
