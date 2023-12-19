@@ -54,7 +54,7 @@ ISR (TIMER1_OVF_vect) //смена рисуемого столбцаи и выв
 
 ISR (INT2_vect) //смена светодиода
 {
-    
+    PORTE = ~PORTE;
 }
     
     
@@ -121,6 +121,9 @@ int main(void){
     LCD_init();
     timer_ini();
     sei();
+    EICRA = (1<<INT2);
+    EICRA = (1<<ISC21);
+
     
     DDRE = (1<<4)|(1<<5);
     PORTE = (1<<4)|(1<<5);
