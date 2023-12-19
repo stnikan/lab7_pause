@@ -53,7 +53,12 @@ ISR (TIMER1_OVF_vect) //смена рисуемого столбцаи и выв
 }
 
 ISR (INT2_vect) //смена светодиода
-{}
+{
+    
+}
+    
+    
+
 
 void LCD_cmd(uint8_t cmd)
 {
@@ -117,6 +122,8 @@ int main(void){
     timer_ini();
     sei();
     
+    DDRE = (1<<4)|(1<<5);
+    PORTE = (1<<4)|(1<<5);
     while (1)
     {   
     
