@@ -114,11 +114,9 @@ int main(void){
     timer_ini();
     sei();
     
-    
     while (1)
     {   
-        
-
+    
     }
 
 }
