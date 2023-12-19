@@ -8,5 +8,9 @@
     "AVR.device.type": "atmega128a",
     "AVR.device.frequency": 11059200,
     "AVR.programmer.type": "stk500",
-    "AVR.programmer.port": "COM4"
+    "AVR.programmer.port": "COM4",
+    "files.associations": {
+        "io.h": "c",
+        "delay.h": "c"
+    }
 }

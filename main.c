@@ -2,7 +2,6 @@
 #define F_CPU 11059200UL
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#define F_CPU 11059200UL
 #define RS 7 // выбор регистра
 #define E 6  // строб передачи
 uint8_t sec = 0;
@@ -54,7 +53,7 @@ ISR (TIMER1_OVF_vect) //смена рисуемого столбцаи и выв
 
 ISR (INT2_vect) //смена светодиода
 {
-    PORTE = ~PORTE;
+    PORTE ^= (1 << 4) | (1 << 5);
 }
     
     
@@ -120,14 +119,14 @@ _delay_ms(1);                   // задержка для завершения 
 int main(void){
     LCD_init();
     timer_ini();
-    EICRA = (1<<INT2); //разрешение прерывания
+    EIMSK = (1<<INT2); //разрешение прерывания
     EICRA = (1<<ISC21); //характер срабатывания прерывания
 
     sei();
     
     
     DDRE = (1<<4)|(1<<5);
-    PORTE = (1<<4)|(1<<5);
+    
     while (1)
     {   
     
